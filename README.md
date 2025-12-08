@@ -1,5 +1,7 @@
 # MLP (Multi-Layer Perceptron) Verilog Implementation — README
 
+Project members: Congkang Lv, Cesar Pineda, Jessica Yao
+
 ## 1. Project Overview
 
 This project implements a quantized two-layer Multi-Layer Perceptron (MLP) using Verilog/SystemVerilog.
