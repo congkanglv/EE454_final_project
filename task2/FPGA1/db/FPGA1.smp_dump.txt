@@ -1,6 +1,0 @@
-
-State Machine - |fpga1_top|linear_layer_q:u_lin|state
-Name state.S_IDLE state.S_DONE state.S_MAC 
-state.S_IDLE 0 0 0 
-state.S_MAC 1 0 1 
-state.S_DONE 1 1 0 
