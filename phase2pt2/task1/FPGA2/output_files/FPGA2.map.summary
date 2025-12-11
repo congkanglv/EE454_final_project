@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Wed Dec 10 20:37:35 2025
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : FPGA2
+Top-level Entity Name : FPGA2
+Family : Cyclone IV E
+Total logic elements : 1,727
+    Total combinational functions : 1,542
+    Dedicated logic registers : 913
+Total registers : 913
+Total pins : 4
+Total virtual pins : 0
+Total memory bits : 175,104
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
