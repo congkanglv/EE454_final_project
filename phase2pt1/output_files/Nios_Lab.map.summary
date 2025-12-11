@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Dec 07 17:42:57 2025
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : Nios_Lab
+Top-level Entity Name : Nios_Lab
+Family : Cyclone IV E
+Total logic elements : 1,781
+    Total combinational functions : 1,581
+    Dedicated logic registers : 941
+Total registers : 941
+Total pins : 18
+Total virtual pins : 0
+Total memory bits : 175,104
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

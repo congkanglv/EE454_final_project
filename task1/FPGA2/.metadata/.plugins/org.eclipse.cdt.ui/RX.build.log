@@ -1,0 +1,9 @@
+20:49:46 **** Incremental Build of configuration Nios II for project RX ****
+make all 
+Info: Building ../RX_bsp/
+C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../RX_bsp/
+[BSP build complete]
+[RX build complete]
+
+20:49:48 Build Finished (took 2s.93ms)
+

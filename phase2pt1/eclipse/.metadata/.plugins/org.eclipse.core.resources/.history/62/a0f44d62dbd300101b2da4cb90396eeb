@@ -1,0 +1,23 @@
+/*
+ * lights.c
+ *
+ *  Created on: Dec 7, 2025
+ *      Author: jessi
+ */
+
+#include "system.h"
+#include "io.h"
+#include "alt_types.h"
+
+int main() {
+	while(1) {
+		// read input from switches
+		alt_u32 switches = IORD_8DIRECT(SWITCHES_BASE,0);
+
+		// write to LEDs
+		IOWR_8DIRECT(LEDS_BASE,0,sw);
+	}
+	return 0;
+}
+
+
