@@ -1,0 +1,155 @@
+FPGA1 AND FPGA2 TEST SET
+
+Equation used by FPGA1:
+z = (1 * x0) + (2 * x1) + (-1 * x2) + (4 * x3)
+
+Equation used by FPGA2:
+y = ReLU(z + 1)
+
+All values use 4-bit signed integers (range -8 to +7).
+
+TEST A: All inputs zero
+
+Switches (SW3 SW2 SW1 SW0) = 0000
+x0 = 0, x1 = 0, x2 = 0, x3 = 0
+
+FPGA1 computes z:
+z = (1 * 0) + (2 * 0) + (-1 * 0) + (4 * 0)
+z = 0
+
+FPGA2 computes y:
+y = ReLU(z + 1)
+y = ReLU(0 + 1)
+y = 1
+
+Expected FPGA1 output: 0000
+Expected FPGA2 output: 0001
+
+TEST B: Only x0 = 1
+
+Switches = 0001
+x0 = 1, x1 = 0, x2 = 0, x3 = 0
+
+FPGA1 computes z:
+z = (1 * 1) + (2 * 0) + (-1 * 0) + (4 * 0)
+z = 1
+
+FPGA2 computes y:
+y = ReLU(1 + 1)
+y = 2
+
+Expected FPGA1 output: 0001
+Expected FPGA2 output: 0010
+
+TEST C: Only x1 = 1
+
+Switches = 0010
+x0 = 0, x1 = 1, x2 = 0, x3 = 0
+
+FPGA1 computes z:
+z = (1 * 0) + (2 * 1) + (-1 * 0) + (4 * 0)
+z = 2
+
+FPGA2 computes y:
+y = ReLU(2 + 1)
+y = 3
+
+Expected FPGA1 output: 0010
+Expected FPGA2 output: 0011
+
+TEST D: Only x2 = 1 (negative contribution)
+
+Switches = 0100
+x0 = 0, x1 = 0, x2 = 1, x3 = 0
+
+FPGA1 computes z:
+z = (1 * 0) + (2 * 0) + (-1 * 1) + (4 * 0)
+z = -1 (binary 1111)
+
+FPGA2 computes y:
+y = ReLU(-1 + 1)
+y = ReLU(0)
+y = 0
+
+Expected FPGA1 output: 1111
+Expected FPGA2 output: 0000
+
+TEST E: Only x3 = 1
+
+Switches = 1000
+x0 = 0, x1 = 0, x2 = 0, x3 = 1
+
+FPGA1 computes z:
+z = (1 * 0) + (2 * 0) + (-1 * 0) + (4 * 1)
+z = 4
+
+FPGA2 computes y:
+y = ReLU(4 + 1)
+y = 5
+
+Expected FPGA1 output: 0100
+Expected FPGA2 output: 0101
+
+TEST F: x0 = 1 and x1 = 1
+
+Switches = 0011
+x0 = 1, x1 = 1, x2 = 0, x3 = 0
+
+FPGA1 computes z:
+z = (1 * 1) + (2 * 1) + (-1 * 0) + (4 * 0)
+z = 3
+
+FPGA2 computes y:
+y = ReLU(3 + 1)
+y = 4
+
+Expected FPGA1 output: 0011
+Expected FPGA2 output: 0100
+
+TEST G: x0 = 1 and x2 = 1
+
+Switches = 0101
+x0 = 1, x1 = 0, x2 = 1, x3 = 0
+
+FPGA1 computes z:
+z = (1 * 1) + (2 * 0) + (-1 * 1) + (4 * 0)
+z = 0
+
+FPGA2 computes y:
+y = ReLU(0 + 1)
+y = 1
+
+Expected FPGA1 output: 0000
+Expected FPGA2 output: 0001
+
+TEST H: x0 = 1, x1 = 1, x2 = 1
+
+Switches = 0111
+x0 = 1, x1 = 1, x2 = 1, x3 = 0
+
+FPGA1 computes z:
+z = (1 * 1) + (2 * 1) + (-1 * 1) + (4 * 0)
+z = 2
+
+FPGA2 computes y:
+y = ReLU(2 + 1)
+y = 3
+
+Expected FPGA1 output: 0010
+Expected FPGA2 output: 0011
+
+TEST I: All inputs 1
+
+Switches = 1111
+x0 = 1, x1 = 1, x2 = 1, x3 = 1
+
+FPGA1 computes z:
+z = (1 * 1) + (2 * 1) + (-1 * 1) + (4 * 1)
+z = 6
+
+FPGA2 computes y:
+y = ReLU(6 + 1)
+y = 7
+
+Expected FPGA1 output: 0110
+Expected FPGA2 output: 0111

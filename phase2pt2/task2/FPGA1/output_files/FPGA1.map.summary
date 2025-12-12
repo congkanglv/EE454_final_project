@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Thu Dec 11 19:02:03 2025
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : FPGA1
+Top-level Entity Name : fpga1_top
+Family : Cyclone IV E
+Total logic elements : 276
+    Total combinational functions : 259
+    Dedicated logic registers : 139
+Total registers : 139
+Total pins : 44
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

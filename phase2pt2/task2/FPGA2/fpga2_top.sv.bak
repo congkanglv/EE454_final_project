@@ -1,0 +1,55 @@
+// fpga2_top.sv
+// Board 2: y = ReLU(z + b), 4-bit fixed-point
+`timescale 1ns/1ps
+
+module fpga2_top #(
+    parameter int DATA_W = 4
+)(
+    input  logic               CLOCK_50,   // 50 MHz clock (optional)
+    input  logic        [0:0]  KEY,        // reset button (active-low)
+    input  logic [DATA_W-1:0]  GPIO_IN,    // 4-bit z from FPGA1
+    output logic [DATA_W-1:0]  LEDR        // output y on LEDs
+);
+
+    //-----------------------------------
+    // Reset and clock (optional)
+    //-----------------------------------
+    logic clk = CLOCK_50;
+    logic rst = ~KEY[0];       // active-low reset
+
+    //-----------------------------------
+    // Interpret GPIO as signed 4-bit z
+    //-----------------------------------
+    logic signed [DATA_W-1:0] z;
+    logic signed [DATA_W-1:0] b;
+    logic signed [DATA_W-1:0] sum;
+    logic signed [DATA_W-1:0] relu_out;
+
+    assign z = GPIO_IN;        // incoming signed value
+
+    // Choose a bias for the model (example: +1)
+    initial b = 4'sd1;
+
+    assign sum = z + b;
+
+    //-----------------------------------
+    // Instantiate your relu module
+    //-----------------------------------
+    relu #(
+        .DATA_W(DATA_W)
+    ) u_relu (
+        .din  (sum),
+        .dout (relu_out)
+    );
+
+    //-----------------------------------
+    // Drive output LEDs with ReLU result
+    //-----------------------------------
+    always_ff @(posedge clk or posedge rst) begin
+        if (rst)
+            LEDR <= '0;
+        else
+            LEDR <= relu_out;
+    end
+
+endmodule

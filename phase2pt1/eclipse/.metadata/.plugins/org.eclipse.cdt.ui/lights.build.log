@@ -1,9 +1,0 @@
-18:30:33 **** Incremental Build of configuration Nios II for project lights ****
-make all 
-Info: Building ../lights_bsp/
-C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../lights_bsp/
-[BSP build complete]
-[lights build complete]
-
-18:30:34 Build Finished (took 1s.180ms)
-
